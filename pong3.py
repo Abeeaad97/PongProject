@@ -8,7 +8,7 @@ pygame.init()
 mainClock = pygame.time.Clock()
 
 
-
+#testing the git 
 WINDOWWIDTH = 1000
 WINDOWHEIGHT = 600
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)

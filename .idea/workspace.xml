@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aecda5fa-36bc-40fa-b400-fe5c46f643a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/abidb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/peachcastle.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pong3.py" beforeDir="false" afterPath="$PROJECT_DIR$/pong3.py" afterDir="false" />
     </list>
@@ -23,9 +25,13 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1R4US3OWdPhDzy7OJRRv5mnB6n8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Pong-master/Draft 1" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
@@ -155,8 +161,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.pong3" />
-        <item itemvalue="Python.sprites_and_sounds" />
         <item itemvalue="Python.dodger_game" />
+        <item itemvalue="Python.sprites_and_sounds" />
         <item itemvalue="Python.Pong (1)" />
         <item itemvalue="Python.pong2" />
       </list>
@@ -187,5 +193,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

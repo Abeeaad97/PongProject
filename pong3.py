@@ -113,7 +113,7 @@ def play():
 
     # creates a title screen for the user
     windowSurface.fill(WHITE)
-    draw_score('Pong', font, windowSurface, WINDOWWIDTH / 3, WINDOWHEIGHT / 3)
+    draw_score('   Welcome to Pong!   ', font, windowSurface, WINDOWWIDTH / 3, WINDOWHEIGHT / 3)
     draw_score('Press a key to start.', font, windowSurface, WINDOWWIDTH / 3 - 30, WINDOWHEIGHT / 3 + 50)
     pygame.display.update()
     choice()

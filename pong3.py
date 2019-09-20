@@ -15,6 +15,7 @@ windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
 pygame.display.set_caption("Pong w/o walls!")
 
 
+
 BLACK = (0,0,0)
 WHITE = (255, 255, 255)
 fps = 60
@@ -30,6 +31,7 @@ moveRight = False
 moveUp = False
 moveDown = False
 MOVESPEED = 6
+font = pygame.font.Font(None, 48)
 class paddles():
     paddle = pygame.Rect(WINDOWWIDTH - 40, 0, 100,10) # top right
     paddle2 = pygame.Rect(WINDOWWIDTH - 40, WINDOWHEIGHT - 40, 100, 10) # bot right
@@ -55,6 +57,17 @@ class ball():
 class score():
     playerScore = 0
     compScore = 0
+
+def reset_ball():
+    ball.bll.x = WINDOWWIDTH / 2
+    ball.bll.y = WINDOWHEIGHT / 2
+def draw_score(text, font, surface, x, y):
+    textobj = font.render(text, 1, BLACK)
+    textrect = textobj.get_rect()
+    textrect.topleft = x, y
+    surface.blit(textobj, textrect)
+
+
 ball.velocity = random.randint(-10, 10)
 ball.angle = random.randint(-10, 10)
 
@@ -114,6 +127,8 @@ while True:
     windowSurface.blit(paddles.fixedImg, paddles.paddle6)
     windowSurface.blit(paddles.fixedNet, paddles.net)
     windowSurface.blit(ball.fixedball, ball.bll)
+    draw_score(str(score.compScore), font,windowSurface, 100, WINDOWHEIGHT / 2)
+    draw_score(str(score.playerScore), font, windowSurface, WINDOWWIDTH - 100, WINDOWHEIGHT / 2)
     padds = [paddles.paddle, paddles.paddle2, paddles.paddle3, paddles.paddle4, paddles.paddle5, paddles.paddle6]
 
     for pad in padds:
@@ -121,6 +136,30 @@ while True:
             ball.velocity = -ball.velocity
             ball.angle = random.randint(-10,10)
             break
+    if ball.bll.x > WINDOWWIDTH:
+        score.compScore +=1
+        draw_score(str(score.compScore), font,windowSurface, 100, WINDOWHEIGHT / 2)
+        reset_ball()
+    elif ball.bll.x < 0:
+        score.playerScore += 1
+        draw_score(str(score.playerScore), font, windowSurface, WINDOWWIDTH - 100, WINDOWHEIGHT / 2)
+        reset_ball()
+    elif ball.bll.y > WINDOWHEIGHT and ball.bll.x > WINDOWWIDTH / 2:
+        score.compScore += 1
+        draw_score(str(score.compScore), font, windowSurface, 100, WINDOWHEIGHT / 2)
+        reset_ball()
+    elif ball.bll.y > WINDOWHEIGHT and ball.bll.x < WINDOWWIDTH / 2:
+        score.playerScore += 1
+        draw_score(str(score.playerScore), font, windowSurface, WINDOWWIDTH - 100, WINDOWHEIGHT / 2)
+        reset_ball()
+    elif ball.bll.y < 0 and ball.bll.x > WINDOWWIDTH / 2:
+        score.compScore += 1
+        draw_score(str(score.compScore), font, windowSurface, 100, WINDOWHEIGHT / 2)
+        reset_ball()
+    elif ball.bll.y < 0 and ball.bll.x < WINDOWWIDTH / 2:
+        score.playerScore += 1
+        draw_score(str(score.playerScore), font, windowSurface, WINDOWWIDTH - 100, WINDOWHEIGHT / 2)
+        reset_ball()
 
     pygame.display.update()
     mainClock.tick(40)

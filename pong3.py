@@ -8,7 +8,7 @@ pygame.init()
 mainClock = pygame.time.Clock()
 
 
-#testing the git 
+
 WINDOWWIDTH = 1000
 WINDOWHEIGHT = 600
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
@@ -46,14 +46,20 @@ class paddles():
 
 class ball():
     bll = pygame.Rect(WINDOWWIDTH / 2, WINDOWHEIGHT / 2, 40, 40)
+    velocity = 0
+    angle = 0
     bllimage = pygame.image.load('ball.gif')
     fixedball = pygame.transform.scale(bllimage, (40,40))
+
 
 class score():
     playerScore = 0
     compScore = 0
+ball.velocity = random.randint(-10, 10)
+ball.angle = random.randint(-10, 10)
 
 while True:
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
@@ -85,6 +91,9 @@ while True:
             if event.key == K_DOWN or event.key == K_s:
                 moveDown = False
     windowSurface.fill(WHITE)
+    ball.bll.x += ball.velocity
+    ball.bll.y += ball.angle
+
     if moveDown and paddles.paddle3.bottom < WINDOWHEIGHT:
         paddles.paddle3.top += MOVESPEED
     if moveUp and paddles.paddle3.top > 0:
@@ -92,7 +101,6 @@ while True:
     if moveLeft and paddles.paddle.left > WINDOWWIDTH / 2:
         paddles.paddle.left -= MOVESPEED
         paddles.paddle2.left -=MOVESPEED
-
     if moveRight and paddles.paddle.right < WINDOWWIDTH:
         paddles.paddle.right += MOVESPEED
         paddles.paddle2.right += MOVESPEED

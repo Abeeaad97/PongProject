@@ -114,6 +114,13 @@ while True:
     windowSurface.blit(paddles.fixedImg, paddles.paddle6)
     windowSurface.blit(paddles.fixedNet, paddles.net)
     windowSurface.blit(ball.fixedball, ball.bll)
+    padds = [paddles.paddle, paddles.paddle2, paddles.paddle3, paddles.paddle4, paddles.paddle5, paddles.paddle6]
+
+    for pad in padds:
+        if ball.bll.colliderect(pad):
+            ball.velocity = -ball.velocity
+            ball.angle = random.randint(-10,10)
+            break
 
     pygame.display.update()
     mainClock.tick(40)

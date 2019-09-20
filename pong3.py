@@ -14,7 +14,10 @@ WINDOWHEIGHT = 600
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
 pygame.display.set_caption("Pong w/o walls!")
 
-
+paddleSound = pygame.mixer.Sound('laser1.wav')
+gamewin = pygame.mixer.Sound('harp.wav')
+gamelose = pygame.mixer.Sound('gameover.wav')
+matchwin = pygame.mixer.Sound('levelup.wav')
 
 BLACK = (0,0,0)
 WHITE = (255, 255, 255)
@@ -162,7 +165,7 @@ while True:
         reset_ball()
 
     pygame.display.update()
-    mainClock.tick(40)
+    mainClock.tick(fps)
 
 
 
